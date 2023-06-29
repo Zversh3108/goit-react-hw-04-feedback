@@ -11,7 +11,7 @@ export default function App() {
 
   const options = Object.keys({ good, neutral, bad });
 
-  const handlerButtonFeedback = (evt) => {
+  const handlerButtonFeedback = evt => {
     const stateKey = evt.currentTarget.textContent;
     if (stateKey === 'good') {
       setGood(prevGood => prevGood + 1);

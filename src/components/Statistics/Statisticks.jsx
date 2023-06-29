@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { List } from './Statistics.Styled';
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 export default function Statistics(props) {
+  const { good, neutral, bad, total } = props;
   return (
     <div>
       <List>
-        <li>Good: {props.good}</li>
-        <li>Neutral: {props.neutral}</li>
-        <li>Bad: {props.bad}</li>
-        <li>Total:{props.total}</li>
-        <li>
-          Positive feedback: {props.total > 0 ? props.positivePercentage : 0}%
-        </li>
+        <li>Good: {good}</li>
+        <li>Neutral: {neutral}</li>
+        <li>Bad: {bad}</li>
+        <li>Total:{total}</li>
+        <li>Positive feedback: {total > 0 ? props.positivePercentage : 0}%</li>
       </List>
     </div>
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
